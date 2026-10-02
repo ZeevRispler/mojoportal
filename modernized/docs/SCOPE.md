@@ -82,7 +82,7 @@ paging links are still rendered as plain GET links), WebSnapr, protocol dropdown
 3. `dotnet test` runs unit + real-MongoDB integration + end-to-end HTTP tests
    (Testcontainers) and all pass.
 4. `tools/mojoPortal.Tools.Migration` imports a synthetic fixture into MongoDB
-   and `verify` produces a reconciliation report (counts + item-level diff).
+   and `reconcile` produces a reconciliation report (counts + item-level diff).
 5. Rollback: `modernized` is a pure addition; no legacy file is modified or
    deleted. Dropping the `mojoportal` MongoDB database returns to zero state.
 
