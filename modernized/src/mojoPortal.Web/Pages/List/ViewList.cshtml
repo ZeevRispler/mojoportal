@@ -1,0 +1,39 @@
+@page "/List/ViewList.aspx"
+@model mojoPortal.Web.Pages.List.ViewListModel
+@section HeadLinks {
+    @if (Model.CanonicalUrl is not null)
+    {
+        <link rel="canonical" href="@Model.CanonicalUrl" />
+    }
+    @if (Model.ItemList is { TotalPages: > 1 })
+    {
+        if (Model.ItemList.PageNumber == 1)
+        {
+            <link rel="next" href="@Model.NextUrl" />
+        }
+        else if (Model.ItemList.PageNumber == Model.ItemList.TotalPages)
+        {
+            <link rel="prev" href="@Model.PrevUrl" />
+        }
+        else
+        {
+            <link rel="prev" href="@Model.PrevUrl" />
+            <link rel="next" href="@Model.NextUrl" />
+        }
+    }
+}
+<div class="modulewrapper">
+    @if (Model.Module is not null && Model.Module.ShowTitle)
+    {
+        <h2 class="moduletitle">@Model.Module.ModuleTitle</h2>
+    }
+    @if (Model.CanEdit && Model.Module is not null)
+    {
+        <a class="ModuleEditLink" href="@Model.SiteRoot/List/Edit.aspx?pageid=@Model.PageId&amp;mid=@Model.ModuleId">Add Link</a>
+        <a class="ModuleEditLink" href="@Model.SiteRoot/List/EditIntro.aspx?pageid=@Model.PageId&amp;mid=@Model.ModuleId" title="Edit Intro">Edit Intro</a>
+    }
+    @if (Model.ItemList is not null)
+    {
+        <partial name="_ItemList" model="Model.ItemList" />
+    }
+</div>

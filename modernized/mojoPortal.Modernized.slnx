@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/mojoPortal.Business/mojoPortal.Business.csproj" />
+    <Project Path="src/mojoPortal.Data.Mongo/mojoPortal.Data.Mongo.csproj" />
+    <Project Path="src/mojoPortal.Web/mojoPortal.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/mojoPortal.Tests/mojoPortal.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/mojoPortal.Tools.Migration/mojoPortal.Tools.Migration.csproj" />
+  </Folder>
+</Solution>

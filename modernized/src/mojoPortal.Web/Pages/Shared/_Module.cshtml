@@ -1,0 +1,23 @@
+@model mojoPortal.Web.ViewModels.ModuleRenderModel
+<div class="modulewrapper">
+    @if (Model.Module.ShowTitle)
+    {
+        <h2 class="moduletitle">@Model.Module.ModuleTitle</h2>
+    }
+    @if (Model.Module.FeatureGuid == mojoPortal.Business.Link.FeatureGuid)
+    {
+        if (Model.CanEdit)
+        {
+            <a class="ModuleEditLink" href="@Model.SiteRoot/List/Edit.aspx?pageid=@Model.Module.PageId&amp;mid=@Model.Module.ModuleId">Add Link</a>
+            <a class="ModuleEditLink" href="@Model.SiteRoot/List/EditIntro.aspx?pageid=@Model.Module.PageId&amp;mid=@Model.Module.ModuleId" title="Edit Intro">Edit Intro</a>
+        }
+        if (Model.ItemList is not null)
+        {
+            <partial name="_ItemList" model="Model.ItemList" />
+        }
+    }
+    else
+    {
+        @* Non-Links features are out of scope for this slice: render the title only. *@
+    }
+</div>

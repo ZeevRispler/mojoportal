@@ -1,0 +1,156 @@
+{
+  "sites": [
+    {
+      "SiteId": 1,
+      "SiteName": "Demo",
+      "SiteGuid": "11111111-1111-1111-1111-111111111111",
+      "UseEmailForLogin": true,
+      "MaxInvalidPasswordAttempts": 5,
+      "PasswordAttemptWindowMinutes": 5,
+      "MinPasswordLength": 4,
+      "MinRequiredNonAlphaNumericCharacters": 0,
+      "RequireApprovalBeforeLogin": false,
+      "AllowSecureRegistration": false,
+      "IsServerAdminSite": true
+    }
+  ],
+  "pages": [
+    {
+      "PageId": 1,
+      "SiteId": 1,
+      "ParentId": -1,
+      "PageName": "Home",
+      "Url": "~/home",
+      "MenuTitle": "Home",
+      "PageOrder": 0,
+      "Roles": "Admins;Authenticated Users;",
+      "ViewRoles": "All Users;",
+      "EditRoles": "Admins;Site Editors;",
+      "HideAfterLogin": false,
+      "HideFromAuthenticated": false,
+      "HideFromUnauthenticated": false,
+      "HideFromAnonymous": false,
+      "IncludeInMenu": true,
+      "IncludeInSiteMap": true,
+      "IncludeInSearchIndex": true,
+      "HideFromChildPagesSiteMap": false,
+      "IsPending": false,
+      "IsSecure": false,
+      "EnableComments": false,
+      "ShowBreadcrumbs": true,
+      "ShowChildPageMenu": false,
+      "AllowBrowserCaching": true,
+      "ShowHomeCrumb": true,
+      "CreatedDate": "2026-01-01T00:00:00Z",
+      "LastModifiedUtc": "2026-01-01T00:00:00Z"
+    }
+  ],
+  "friendlyUrls": [
+    { "FriendlyUrlId": 1, "SiteId": 1, "FriendlyName": "/home", "RealUrl": "~/Default.aspx?pageid=1", "PageId": 1 }
+  ],
+  "moduleDefinitions": [
+    {
+      "ModuleDefId": 1,
+      "Guid": "74bdbcc2-0e79-47ff-bcd4-a159270bf36e",
+      "FriendlyName": "List",
+      "ControlSource": "mojoPortal.Features.UI/List/Controls/ItemList.ascx",
+      "SiteModuleDefId": 1,
+      "SiteGuid": "11111111-1111-1111-1111-111111111111"
+    }
+  ],
+  "modules": [
+    {
+      "ModuleId": 0,
+      "SiteId": 1,
+      "ModuleDefId": 1,
+      "FeatureGuid": "74bdbcc2-0e79-47ff-bcd4-a159270bf36e",
+      "ModuleTitle": "Featured Links",
+      "PaneName": "center",
+      "ModuleOrder": 1,
+      "PublishBeginDate": "2020-01-01T00:00:00Z",
+      "PublishEndDate": null,
+      "ShowTitle": true,
+      "ViewRoles": "All Users;",
+      "EditRoles": "Admins;Site Editors;",
+      "AuthorizedEditRoles": "Admins;Site Editors;",
+      "EditUserId": -1,
+      "HideFromAuthenticated": false,
+      "HideFromUnauthenticated": false,
+      "Icon": "",
+      "IncludeInSearch": true,
+      "IsGlobal": false,
+      "CacheTime": 0
+    }
+  ],
+  "pageModules": [
+    { "PageId": 1, "ModuleId": 0, "PaneName": "center", "ModuleOrder": 1, "PublishBeginDate": "2020-01-01T00:00:00Z", "PublishEndDate": null }
+  ],
+  "moduleSettings": [
+    {
+      "Id": 1,
+      "ModuleId": 0,
+      "SettingName": "UseDescription",
+      "SettingValue": "false",
+      "ControlType": "CheckBox",
+      "SettingGuid": "22222222-2222-2222-2222-222222222222",
+      "ModuleGuid": "33333333-3333-3333-3333-333333333333"
+    }
+  ],
+  "links": [
+    {
+      "ItemId": 0,
+      "ModuleId": 0,
+      "Title": "Alpha",
+      "Url": "https://a.example",
+      "Target": "",
+      "ViewOrder": 500,
+      "Description": "",
+      "CreatedDate": "2026-01-01T00:00:00Z",
+      "CreatedByUser": -1,
+      "UserGuid": "44444444-4444-4444-4444-444444444444",
+      "ItemGuid": "55555555-5555-5555-5555-555555555555"
+    },
+    {
+      "ItemId": 1,
+      "ModuleId": 0,
+      "Title": "Beta",
+      "Url": "~/docs/page",
+      "Target": "_blank",
+      "ViewOrder": 100,
+      "Description": "beta desc",
+      "CreatedDate": "2026-01-02T00:00:00Z",
+      "CreatedByUser": -1,
+      "UserGuid": "44444444-4444-4444-4444-444444444444",
+      "ItemGuid": "66666666-6666-6666-6666-666666666666"
+    }
+  ],
+  "roles": [
+    { "RoleId": 1, "SiteId": 1, "RoleName": "Admins", "DisplayName": "Admins" },
+    { "RoleId": 2, "SiteId": 1, "RoleName": "Site Editors", "DisplayName": "Site Editors" }
+  ],
+  "users": [
+    {
+      "UserId": 1,
+      "SiteId": 1,
+      "UserGuid": "77777777-7777-7777-7777-777777777777",
+      "LoginName": "admin",
+      "Email": "admin@example.test",
+      "LoweredEmail": "admin@example.test",
+      "Name": "Admin User",
+      "Pwd": "admin123",
+      "PasswordSalt": "",
+      "PasswordFormat": 0,
+      "ApprovedForLogin": true,
+      "IsDeleted": false,
+      "IsLockedOut": false,
+      "MustChangePwd": false,
+      "FailedPasswordAttemptCount": 0,
+      "FailedPwdAttemptWindowStart": null,
+      "LastLoginDate": null,
+      "DateCreated": "2026-01-01T00:00:00Z"
+    }
+  ],
+  "userRoles": [
+    { "UserId": 1, "RoleId": 1 }
+  ]
+}

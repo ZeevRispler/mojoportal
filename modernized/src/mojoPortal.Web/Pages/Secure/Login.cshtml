@@ -1,0 +1,27 @@
+@page "/Secure/Login.aspx"
+@model mojoPortal.Web.Pages.Secure.LoginModel
+<div class="modulecontent loginpage">
+    <h2>Login</h2>
+    @if (Model.FailureMessage is not null)
+    {
+        <div class="txterror">@Model.FailureMessage</div>
+    }
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <ol class="formlist">
+            <li class="settingrow">
+                <label class="settinglabel" for="UserName">@Model.UserNameLabel</label>
+                <input class="forminput" type="text" id="UserName" name="UserName" value="@Model.UserName" />
+            </li>
+            <li class="settingrow">
+                <label class="settinglabel" for="Password">Password</label>
+                <input class="forminput" type="password" id="Password" name="Password" />
+            </li>
+            <li class="settingrow">
+                <div class="forminput">
+                    <button type="submit" class="buttonlink">Login</button>
+                </div>
+            </li>
+        </ol>
+    </form>
+</div>

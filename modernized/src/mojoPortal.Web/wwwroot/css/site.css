@@ -1,0 +1,18 @@
+body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; margin: 0; }
+#layout-wrapper { max-width: 1000px; margin: 0 auto; padding: 12px; }
+ul.linkitem { list-style: none; padding-left: 0; }
+ul.linkitem li { margin: 0.35em 0; }
+.linkdesc { margin: 0.2em 0; }
+.listintro { margin-bottom: 0.8em; }
+.ModuleEditLink { font-size: 11px; margin-left: 8px; }
+.mojoPager { margin-top: 1em; }
+.mojoPager a, .mojoPager span { margin-right: 6px; }
+.settingrow { margin: 0.6em 0; }
+.settingrow label { display: block; font-weight: bold; }
+.validation-error { color: #b00020; }
+.modulewrapper { margin: 1em 0; }
+.moduletitle { margin-bottom: 0.3em; }
+.panes { display: flex; gap: 24px; }
+.pane-left, .pane-right { min-width: 160px; }
+.pane-content { flex: 1; }
+input[type=text], textarea { width: 420px; max-width: 100%; }
