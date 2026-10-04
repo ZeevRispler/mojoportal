@@ -1,0 +1,23 @@
+@page
+@model mojoPortal.Web.Pages.CmsPageModel
+@using mojoPortal.Web.ViewModels
+<div class="centersideleft">
+    <div id="divLeft" class="leftside">
+        @foreach (var m in Model.LeftPaneModules)
+        {
+            <partial name="_Module" model="new ModuleRenderModel { Module = m, CanEdit = Model.CanEdit.GetValueOrDefault(m.ModuleId), SiteRoot = Model.SiteRoot, ItemList = Model.ItemLists.GetValueOrDefault(m.ModuleId) }" />
+        }
+    </div>
+    <div id="divCenter" class="center">
+        @foreach (var m in Model.ContentPaneModules)
+        {
+            <partial name="_Module" model="new ModuleRenderModel { Module = m, CanEdit = Model.CanEdit.GetValueOrDefault(m.ModuleId), SiteRoot = Model.SiteRoot, ItemList = Model.ItemLists.GetValueOrDefault(m.ModuleId) }" />
+        }
+    </div>
+    <div id="divRight" class="rightside">
+        @foreach (var m in Model.RightPaneModules)
+        {
+            <partial name="_Module" model="new ModuleRenderModel { Module = m, CanEdit = Model.CanEdit.GetValueOrDefault(m.ModuleId), SiteRoot = Model.SiteRoot, ItemList = Model.ItemLists.GetValueOrDefault(m.ModuleId) }" />
+        }
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <RootNamespace>mojoPortal.Web</RootNamespace>
+    <AssemblyName>mojoPortal.Web</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\mojoPortal.Business\mojoPortal.Business.csproj" />
+    <ProjectReference Include="..\mojoPortal.Data.Mongo\mojoPortal.Data.Mongo.csproj" />
+  </ItemGroup>
+</Project>

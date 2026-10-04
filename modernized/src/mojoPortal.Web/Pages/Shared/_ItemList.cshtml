@@ -1,0 +1,71 @@
+@model mojoPortal.Web.ViewModels.ItemListModel
+<div class="listintro">@Html.Raw(Model.Config.IntroContent)</div>
+@if (Model.Config.DescriptionOnly)
+{
+    @for (var i = 0; i < Model.Items.Count; i++)
+    {
+        var item = Model.Items[i];
+        var css = (i % 2 == 1) ? "linkdesc linkdescalt" : "linkdesc";
+        <div class="@css">
+            @if (Model.IsEditable)
+            {
+                <a class="ModuleEditLink" href="@Model.FormatEditUrl(item.ItemId)" title="Edit">Edit</a>
+            }
+            @if (Model.Config.UseDescription)
+            {
+                @Html.Raw(item.Description)
+            }
+        </div>
+    }
+}
+else
+{
+    <ul class="linkitem">
+    @for (var i = 0; i < Model.Items.Count; i++)
+    {
+        var item = Model.Items[i];
+        var css = (i % 2 == 1) ? "linkaltitem" : "linkitem";
+        <li class="@css">
+            @if (Model.Config.UseDescription && Model.DescriptionAboveLink)
+            {
+                <div class="linkdesc">@Html.Raw(item.Description)</div>
+            }
+            @Html.Raw(LinkHtml.CreateLink(item.Title, item.Url, item.Description, item.Target, Model.ImageSiteRoot))
+            @if (Model.IsEditable)
+            {
+                <a class="ModuleEditLink" href="@Model.FormatEditUrl(item.ItemId)" title="Edit">Edit</a>
+            }
+            @if (Model.Config.UseDescription && !Model.DescriptionAboveLink)
+            {
+                <div class="linkdesc">@Html.Raw(item.Description)</div>
+            }
+        </li>
+    }
+    </ul>
+}
+@if (Model.ShowPager && Model.TotalPages > 1)
+{
+    <div class="mojoPager">
+        <a href="@Model.FormatPageUrl(1)">First</a>
+        @if (Model.PageNumber > 1)
+        {
+            <a href="@Model.FormatPageUrl(Model.PageNumber - 1)">Prev</a>
+        }
+        @for (var p = 1; p <= Model.TotalPages; p++)
+        {
+            if (p == Model.PageNumber)
+            {
+                <span>@p</span>
+            }
+            else
+            {
+                <a href="@Model.FormatPageUrl(p)">@p</a>
+            }
+        }
+        @if (Model.PageNumber < Model.TotalPages)
+        {
+            <a href="@Model.FormatPageUrl(Model.PageNumber + 1)">Next</a>
+        }
+        <a href="@Model.FormatPageUrl(Model.TotalPages)">Last</a>
+    </div>
+}

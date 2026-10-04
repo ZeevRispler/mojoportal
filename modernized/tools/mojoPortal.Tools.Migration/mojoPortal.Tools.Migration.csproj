@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>mojoPortal.Tools.Migration</RootNamespace>
+    <AssemblyName>mojoPortal.Tools.Migration</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/mojoPortal.Business/mojoPortal.Business.csproj" />
+    <ProjectReference Include="../../src/mojoPortal.Data.Mongo/mojoPortal.Data.Mongo.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,77 @@
+@page "/List/Edit.aspx"
+@model mojoPortal.Web.Pages.List.EditModel
+@{
+    ViewData["Title"] = "Link Editor";
+    ViewData["BodyClass"] = "editlink";
+}
+<div class="panelwrapper linksmodule">
+    <h2 class="moduletitle">Item Details</h2>
+    <div class="modulecontent">
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="HdnReturnUrl" value="@Model.HdnReturnUrl" />
+            <ol class="formlist">
+                <li class="settingrow">
+                    <label class="settinglabel" for="Description">Description</label>
+                </li>
+                <li class="settingrow">
+                    <textarea class="forminput verywidetextbox" id="Description" name="Description" rows="10">@Model.Description</textarea>
+                </li>
+                <li class="settingrow">
+                    <label class="settinglabel" for="Title">Title</label>
+                    <input class="forminput verywidetextbox" type="text" id="Title" name="Title" maxlength="255" value="@Model.Title" />
+                </li>
+                <li class="settingrow">
+                    <label class="settinglabel" for="UrlText">Url</label>
+                    <div class="forminput">
+                        @if (Model.UseProtocolDropdown)
+                        {
+                            <select name="Protocol" id="Protocol">
+                                <option value="http://">http://</option>
+                                <option value="https://">https://</option>
+                                <option value="~/">~/</option>
+                            </select>
+                        }
+                        <input class="verywidetextbox" type="text" id="UrlText" name="UrlText" maxlength="1000" value="@Model.UrlText" />
+                    </div>
+                </li>
+                <li class="settingrow">
+                    <label class="settinglabel" for="ViewOrderText">Sort Rank</label>
+                    <input class="forminput smalltextbox" type="text" id="ViewOrderText" name="ViewOrderText" maxlength="10" value="@Model.ViewOrderText" />
+                </li>
+                <li class="settingrow">
+                    <label class="settinglabel" for="UseNewWindow">Open in new window?</label>
+                    <input class="forminput" type="checkbox" id="UseNewWindow" name="UseNewWindow" value="true" @(Model.UseNewWindow ? "checked" : "") />
+                </li>
+                @if (Model.CreatedByUserName is not null)
+                {
+                    <li class="settingrow">
+                        <label class="settinglabel">Created By</label>
+                        <span>@Model.CreatedByUserName</span>
+                    </li>
+                }
+                <li class="settingrow">
+                    @if (Model.Errors.Count > 0)
+                    {
+                        <div class="txterror">
+                            @foreach (var e in Model.Errors)
+                            {
+                                <div>@e</div>
+                            }
+                        </div>
+                    }
+                </li>
+                <li class="settingrow">
+                    <div class="forminput">
+                        <button type="submit" class="buttonlink">Save</button>&nbsp;
+                        @if (Model.ItemId > -1)
+                        {
+                            <button type="submit" class="buttonlink" asp-page-handler="Delete" onclick="return confirm('@Model.DeleteConfirmText')">Delete this item</button>
+                        }
+                        <a class="cancellink" href="@Model.CancelUrl">Cancel</a>
+                    </div>
+                </li>
+            </ol>
+        </form>
+    </div>
+</div>

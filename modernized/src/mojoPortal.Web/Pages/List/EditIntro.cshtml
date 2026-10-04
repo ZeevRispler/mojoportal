@@ -1,0 +1,25 @@
+@page "/List/EditIntro.aspx"
+@model mojoPortal.Web.Pages.List.EditIntroModel
+@{
+    ViewData["Title"] = "Edit Intro";
+    ViewData["BodyClass"] = "editintro";
+}
+<div class="panelwrapper linksmodule">
+    <h2 class="moduletitle">Edit Intro</h2>
+    <div class="modulecontent">
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <ol class="formlist">
+                <li class="settingrow">
+                    <textarea class="forminput verywidetextbox" id="IntroContent" name="IntroContent" rows="10">@Model.IntroContent</textarea>
+                </li>
+                <li class="settingrow">
+                    <div class="forminput">
+                        <button type="submit" class="buttonlink">Save</button>&nbsp;
+                        <a class="cancellink" href="@Model.CancelUrl">Cancel</a>
+                    </div>
+                </li>
+            </ol>
+        </form>
+    </div>
+</div>
